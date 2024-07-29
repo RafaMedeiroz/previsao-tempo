@@ -8,10 +8,12 @@ function WeatherInformations({weather}){
         <div>
             <h2>{weather.name}</h2>
             <div>
+            
             <img 
             src={`http://openweathermap.org/img/wn/${weather.weather[0].icon}.png`} 
             />
             <p>{Math.round(weather.main.temp)}°C</p>
+
             </div>
             <p>{weather.weather[0].description}</p>
             <div>
@@ -19,7 +21,8 @@ function WeatherInformations({weather}){
                 <p>Umidade: {weather.main.humidity}%</p>
                 <p>Pressão: {weather.main.pressure}</p>
 
-            </div>
+            </div>        
+        
             
         </div>
         
