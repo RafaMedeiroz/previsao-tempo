@@ -1,12 +1,19 @@
 import { useState, useRef } from 'react'
+import axios from 'axios'
 import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [weather, setWeather] = useState({})
   const inputRef = useRef()
 
-  function searchCity(){
-    console.log(inputRef.current.value)
+  async function searchCity(){
+    const city = inputRef.current.value 
+    const key = "8fbdbb2f3fc8eb4e47fe63887227f3a5"
+   
+    const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${key}&lang={pt_br}&units=metric`
+
+    const apiInfo = await axios.get(url)
+    setWeather(apiInfo.data)
 
   }
 
